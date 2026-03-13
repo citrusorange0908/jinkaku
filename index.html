@@ -1,9 +1,25 @@
 <!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script>
+const supabase = supabase.createClient(
+"SUPABASE_URL",
+"SUPABASE_ANON_KEY"
+)
+
+async function loadData(){
+const { data } = await supabase
+.from('posts')
+.select('*')
+
+console.log(data)
+}
+</script>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>サンプルサイト</title>
+<title>リンバス民のためのサイト</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
